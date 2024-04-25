@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>IMC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Peso (kg)</ion-label>
+        <ion-input type="number" [(ngModel)]="peso"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Altura (m)</ion-label>
+        <ion-input type="number" [(ngModel)]="altura"></ion-input>
+      </ion-item>
+      <button class="custom-button" (click)="calcularIMC()">Calcular IMC</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="resultado">
+    <ion-card-header>
+      Resultado do IMC
+    </ion-card-header>
+    <ion-card-content>
+      <p>Seu Índice de Massa Corporal (IMC) é {{ resultado.toFixed(2) }}</p>
+      <p>{{ interpretarIMC(resultado) }}</p>
+    </ion-card-content>
+  </ion-card>
+  <button class="custom-button" (click)="irParaHome()">Voltar para perfil</button>
+
+</ion-content>
